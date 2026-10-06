@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Commit Roaster: get your commit messages roasted</title>
+    <meta name="description" content="Paste a GitHub repo and get your commit messages roasted: a score, a hall of shame, funny roasts and tips for writing better commits." />
+    <meta property="og:title" content="Commit Roaster 🔥" />
+    <meta property="og:description" content="Your commits are about to get roasted." />
+    <meta name="theme-color" content="#0f0b09" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="src/app.js"></script>
+  </head>
+  <body>
+    <canvas id="embers" aria-hidden="true"></canvas>
+    <div class="heat" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="logo" href="./"><span class="logo-flame">🔥</span>commit<span>/</span>roaster</a>
+      <a class="nav-link" href="https://github.com/mudit2308/commit-roaster" target="_blank" rel="noopener">GitHub ↗</a>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <p class="eyebrow in" style="--d: 0s">No feelings were spared</p>
+        <h1 class="in" style="--d: 0.1s">Your commits are about to get <span class="flame">roasted.</span></h1>
+        <p class="lede in" style="--d: 0.25s">Paste a GitHub repo. We read every commit message, give it a score, and roast the worst ones. Then we tell you how to fix them.</p>
+
+        <div class="console in" style="--d: 0.4s">
+          <div class="tabs" role="tablist">
+            <button type="button" role="tab" class="tab" aria-selected="true" data-mode="repo">GitHub repo</button>
+            <button type="button" role="tab" class="tab" aria-selected="false" data-mode="paste">Paste git log</button>
+          </div>
+
+          <form id="roast-form" autocomplete="off">
+            <div class="mode mode-repo">
+              <div class="field">
+                <span class="prefix">github.com/</span>
+                <input id="repo" placeholder="owner/repo" aria-label="GitHub repository" spellcheck="false" />
+                <button type="submit" class="fire-btn"><span>Roast it</span> 🔥</button>
+              </div>
+              <div class="try">
+                <span>Try:</span>
+                <button type="button" class="chip" id="demo-btn">💀 Demo disaster repo</button>
+                <button type="button" class="chip" data-repo="mudit2308/jd-decoder">mudit2308/jd-decoder</button>
+                <button type="button" class="chip" data-repo="mudit2308/github-wrapped">mudit2308/github-wrapped</button>
+              </div>
+            </div>
+
+            <div class="mode mode-paste" hidden>
+              <p class="hint">For private repos: run <code>git log --oneline -n 300</code> in your project and paste the output.</p>
+              <textarea id="log" placeholder="a1b2c3d fix&#10;9f8e7d6 final final v2&#10;4c5d6e7 Add login page" spellcheck="false"></textarea>
+              <button type="submit" class="fire-btn wide"><span>Roast my log</span> 🔥</button>
+            </div>
+
+            <details class="token">
+              <summary>Hitting GitHub's rate limit? Add a token (optional)</summary>
+              <p>GitHub allows 60 requests an hour without a token. A <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">fine-grained token</a> with no extra permissions raises that. It's only sent to GitHub, never stored.</p>
+              <input id="token" type="password" placeholder="github_pat_…" aria-label="GitHub token" />
+            </details>
+          </form>
+
+          <p id="error" class="error" role="alert" hidden></p>
+        </div>
+      </section>
+
+      <section id="loading" class="loading" hidden aria-live="polite">
+        <div class="big-flame" aria-hidden="true">🔥</div>
+        <p class="loading-line" id="loading-line">Reading your commits…</p>
+        <div class="loading-bar"><span></span></div>
+      </section>
+
+      <section id="results" class="results" hidden></section>
+    </main>
+
+    <footer class="foot">
+      <p>Built by <a href="https://github.com/mudit2308" target="_blank" rel="noopener">Mudit Pathak</a> · All roasts are about commit messages, not people 🫶</p>
+    </footer>
+  </body>
+</html>

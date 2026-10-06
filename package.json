@@ -1,0 +1,11 @@
+{
+  "name": "commit-roaster",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Paste a GitHub repo and get your commit messages roasted.",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "test": "node --test"
+  }
+}
