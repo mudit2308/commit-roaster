@@ -1,10 +1,18 @@
-# Commit Roaster 🔥
+<div align="center">
+
+# 🔥 Commit Roaster
 
 **Your commits are about to get roasted.**
 
-Paste a GitHub repo and Commit Roaster reads every commit message, gives the repo a score out of 100, roasts the worst offenders, and then shows you how to write better commits.
+Paste a GitHub repo. Get a score out of 100, a Hall of Shame of your worst commit messages, a roast you can share, and tips to write better commits.
 
-**Live demo:** https://mudit2308.github.io/commit-roaster/
+[![Live demo](https://img.shields.io/badge/demo-live-ff7a1a?style=for-the-badge)](https://mudit2308.github.io/commit-roaster/)
+[![No backend](https://img.shields.io/badge/backend-none-2e231d?style=for-the-badge)](#how-it-works)
+[![License: MIT](https://img.shields.io/badge/license-MIT-ffc53d?style=for-the-badge)](LICENSE)
+
+**[👉 Roast your repo](https://mudit2308.github.io/commit-roaster/)**
+
+</div>
 
 ![Commit Roaster home page](docs/home.png)
 
@@ -21,8 +29,12 @@ Paste a GitHub repo and Commit Roaster reads every commit message, gives the rep
 - **Private repos**: paste the output of `git log` instead of a link
 - **Demo mode**: try it instantly with a gloriously messy sample repo
 
-![Verdict](docs/verdict.png)
-![Hall of Shame](docs/hall-of-shame.png)
+<p align="center">
+  <img src="docs/verdict.png" alt="Score and verdict" width="49%" />
+  <img src="docs/hall-of-shame.png" alt="Hall of Shame" width="49%" />
+</p>
+
+<p align="center"><img src="docs/roast-card.png" alt="Shareable roast card" width="320" /></p>
 
 ## How it works
 
